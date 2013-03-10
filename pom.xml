@@ -42,24 +42,52 @@
 							<groupId>org.apache.maven.plugins</groupId>
 							<artifactId>maven-checkstyle-plugin</artifactId>
 							<version>2.5</version>
-							<configuration>
-          						<configLocation>checkstyle.xml</configLocation>
-        					</configuration>
 						</plugin>
-						
 						<plugin>
 							<groupId>org.apache.maven.plugins</groupId>
 							<artifactId>maven-pmd-plugin</artifactId>
-							<version>2.4</version>
+							<version>3.0</version>
 							<configuration>
 					            <sourceEncoding>utf-8</sourceEncoding>
 					            <minimumTokens>100</minimumTokens>
         					</configuration>
 						</plugin>
 						
+				        <plugin>
+					        <groupId>org.apache.maven.plugins</groupId>
+					        <artifactId>maven-javadoc-plugin</artifactId>
+					        <version>2.9</version>
+      					</plugin>
 					</reportPlugins>
 				</configuration>
 			</plugin>
 		</plugins>
 </build>
+  <reporting>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-pmd-plugin</artifactId>
+        <version>3.0</version>
+		<configuration>
+	        <sourceEncoding>utf-8</sourceEncoding>
+	        <minimumTokens>100</minimumTokens>
+		</configuration>
+      </plugin>
+      
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-checkstyle-plugin</artifactId>
+        <version>2.5</version>
+ 		<configuration>
+        	<configLocation>checkstyle.xml</configLocation>
+        </configuration>
+      </plugin>
+      <plugin>
+       <groupId>org.apache.maven.plugins</groupId>
+       <artifactId>maven-javadoc-plugin</artifactId>
+       <version>2.9</version>
+		  </plugin>
+    </plugins>
+  </reporting>
 </project>
