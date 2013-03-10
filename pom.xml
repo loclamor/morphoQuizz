@@ -21,12 +21,6 @@
 			<version>3.8.1</version>
 			<scope>test</scope>
 		</dependency>
-		<dependency>
-		    <groupId>net.sf.json-lib</groupId>
-		    <artifactId>json-lib</artifactId>
-		    <version>2.4</version>
-		    <classifier>jdk15</classifier>
-		</dependency>
 		    <dependency>
         <groupId>org.apache.commons</groupId>
         <artifactId>commons-io</artifactId>
@@ -35,10 +29,11 @@
         <scope>compile</scope>
     </dependency>
     <dependency>
-        <groupId>xom</groupId>
-        <artifactId>xom</artifactId>
-        <version>1.1</version>
-    </dependency>
+	<groupId>de.odysseus.staxon</groupId>
+	<artifactId>staxon</artifactId>
+	<version>1.2</version>
+</dependency>
+    
 		
 	</dependencies>
 	

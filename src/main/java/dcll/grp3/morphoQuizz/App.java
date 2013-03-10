@@ -1,7 +1,6 @@
 package dcll.grp3.morphoQuizz;
 
 import java.io.File;
-import java.io.IOException;
 
 /**
  * Hello world!
@@ -17,7 +16,7 @@ public class App
         	File newXml = new File("test.xml");
 			QuizzConverter.XMLQuizzToJson(xml, json);
 			QuizzConverter.JsonQuizzToXML(json, newXml);
-		} catch (IOException e) {
+		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
