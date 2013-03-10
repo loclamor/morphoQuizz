@@ -8,6 +8,7 @@ import java.io.InputStream;
 import java.io.OutputStream;
 
 import net.sf.json.JSON;
+import net.sf.json.JSONSerializer;
 import net.sf.json.xml.XMLSerializer;
 
 import org.apache.commons.io.IOUtils;
@@ -45,6 +46,19 @@ public class QuizzConverter {
 	 */
 	public static void JsonQuizzToXML(File jsonInput, File xmlOutput)
 			throws IOException {
-		
+        InputStream is = new FileInputStream(jsonInput);
+        OutputStream os = new FileOutputStream(xmlOutput);
+        
+        String jsonData = IOUtils.toString(is);
+        
+        XMLSerializer serializer = new XMLSerializer(); 
+        JSON json = JSONSerializer.toJSON( jsonData ); 
+        serializer.setRootName("quizz");
+        serializer.setTypeHintsEnabled(false);
+        
+        IOUtils.write(serializer.write( json ), os);  
+        
+		is.close();
+		os.close();
 	}
 }
