@@ -32,7 +32,8 @@ public class QuizzConverterTest extends TestCase {
 	
 	public static void testJsonQuizzToXML (File jsonInput, File xmlOutput)
 			throws IOException {
-		
+		assertNotNull(jsonInput);
+		assertNotNull(xmlOutput);
 	}
 	
 	
