@@ -26,7 +26,7 @@ public class QuizzConverter {
 	/**
 	 * Lit le fichier de quizz XML xmlInput, ecrit le test convertit en JSON
 	 * dans le fichier jsonOutput
-	 * 
+	 *
 	 * @param xmlInput
 	 *            Ficher de Quizz XML
 	 * @param jsonOutput
@@ -35,7 +35,7 @@ public class QuizzConverter {
 	 * @throws javax.xml.stream.FactoryConfigurationError
 	 * @throws XMLStreamException
 	 */
-	public static void XMLQuizzToJson(File xmlInput, File jsonOutput)
+	public static void xmlQuizzToJson(File xmlInput, File jsonOutput)
 			throws IOException, XMLStreamException,
 			javax.xml.stream.FactoryConfigurationError {
 		InputStream is = new FileInputStream(xmlInput);
@@ -79,16 +79,16 @@ public class QuizzConverter {
 	/**
 	 * Lit le fichier de quizz json jsonInput, ecrit le test convertit en XML
 	 * dans le fichier xmlOutput
-	 * 
+	 *
 	 * @param jsonInput
 	 *            Ficher de Quizz Json
 	 * @param xmlOutput
 	 *            Fichier de sortie XML
 	 * @throws IOException
-	 * @throws FactoryConfigurationError 
-	 * @throws XMLStreamException 
+	 * @throws FactoryConfigurationError
+	 * @throws XMLStreamException
 	 */
-	public static void JsonQuizzToXML(File jsonInput, File xmlOutput)
+	public static void jsonQuizzToXML(File jsonInput, File xmlOutput)
 			throws IOException, XMLStreamException, FactoryConfigurationError {
 		InputStream is = new FileInputStream(jsonInput);
 		OutputStream os = new FileOutputStream(xmlOutput);
@@ -99,18 +99,15 @@ public class QuizzConverter {
 			 * Create reader (JSON).
 			 */
 			XMLEventReader reader = new JsonXMLInputFactory(config).createXMLEventReader(is);
-			
 			/*
 			 * Create writer (XML).
 			 */
 			XMLEventWriter writer = XMLOutputFactory.newInstance().createXMLEventWriter(os);
-			writer = new PrettyXMLEventWriter(writer); // format output
-			
+			writer = new PrettyXMLEventWriter(writer);// format output
 			/*
 			 * Copy events from reader to writer.
 			 */
 			writer.add(reader);
-			
 			/*
 			 * Close reader/writer.
 			 */
