@@ -1,5 +1,4 @@
 package dcll.grp3.morphoQuizz;
-
 import java.io.File;
 
 /**
@@ -7,6 +6,10 @@ import java.io.File;
  *
  */
 public class App {
+	/**.
+	 * Methode main
+	 * @param args stocker les entrées
+	 */
     public static void main(final String[] args) {
         try {
         	File xml = new File("quiz-moodle-exemple.xml");
