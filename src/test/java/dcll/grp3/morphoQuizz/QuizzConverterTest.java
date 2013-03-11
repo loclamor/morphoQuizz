@@ -59,7 +59,7 @@ public class QuizzConverterTest extends TestCase {
 				 //traitement selon l'extension
 				 if (ext.equals(".xml")) {
 					 testOutput = new File(testFolder.getPath() + "/" + filesNames[i].substring(0,filesNames[i].indexOf(".")) + ".json");
-					 QuizzConverter.XMLQuizzToJson(testInput, testOutput);
+					 QuizzConverter.xmlQuizzToJson(testInput, testOutput);
 					 assertTrue(testOutput.exists());
 				 }
 			 }
@@ -77,7 +77,7 @@ public class QuizzConverterTest extends TestCase {
 				 //traitement selon l'extension
 				 if (ext.equals(".json")) {
 					 testOutput = new File(testFolder.getPath() + "/" + filesNames[i].substring(0,filesNames[i].indexOf(".")) + ".xml");
-					 QuizzConverter.JsonQuizzToXML(testInput, testOutput);
+					 QuizzConverter.jsonQuizzToXML(testInput, testOutput);
 					 assertTrue(testOutput.exists());
 				 }
 			 }
