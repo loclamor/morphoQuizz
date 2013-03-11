@@ -31,7 +31,7 @@ public class QuizzConverterTest extends TestCase {
 		assertTrue(true);
 	}
 	/**.
-	 * convertir un fichier json en fichier xml
+	 * convertir un fichier xml en fichier json
 	 * @param xmlInput fichier xml en entrée
 	 * @param jsonOutput fichier json en sortie
 	 * @throws IOException exception entrée/sortie
