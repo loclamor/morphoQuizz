@@ -88,13 +88,21 @@ public class QuizzConverterTest extends XMLTestCase {
 		//selection des fichiers json dans data tmp
 		 for (int i=0; i<filesNames.length; i++) {
 			 testInput = new File("data/" + filesNames[i]);
+			 testOutput = new File(testFolder.getPath() + "/testJSON2XML_" + filesNames[i].substring(0,filesNames[i].indexOf(".")) + ".xml");
+			 testOutput2 = new File(testFolder.getPath() + "/testJSON2XML_" + filesNames[i].substring(0,filesNames[i].indexOf(".")) + "2.json");
+			 
 			 if (testInput.getName().lastIndexOf(".") > 0) {
 				 ext = testInput.getName().substring(testInput.getName().lastIndexOf("."));
 				 //traitement selon l'extension
 				 if (ext.equals(".json")) {
-					 testOutput = new File(testFolder.getPath() + "/" + filesNames[i].substring(0,filesNames[i].indexOf(".")) + ".xml");
+					 
+					 System.out.println("conversion JSON à XML");
 					 QuizzConverter.jsonQuizzToXML(testInput, testOutput);
 					 assertTrue(testOutput.exists());
+					 
+					 System.out.println("reconversion XML à JSON");
+					 QuizzConverter.xmlQuizzToJson(testOutput, testOutput2);
+					 assertTrue(testOutput2.exists());
 				 }
 			 }
 		 }
