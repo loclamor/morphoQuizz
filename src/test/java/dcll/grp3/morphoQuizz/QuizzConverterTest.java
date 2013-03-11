@@ -43,9 +43,9 @@ public class QuizzConverterTest extends TestCase {
 		 //suppression des fichiers de tests
 		 for (int i=0; i<filesNames.length; i++) {
 			 File file = new File(testFolder.getPath() + "/" + filesNames[i]);
-			 file.delete();
+			 //file.delete();
 		 }
-		 testFolder.delete();
+		 //testFolder.delete();
 	 }
 	 
 	public void testXMLQuizzToJson ()
@@ -62,6 +62,7 @@ public class QuizzConverterTest extends TestCase {
 					 QuizzConverter.xmlQuizzToJson(testInput, testOutput);
 					 assertTrue(testOutput.exists());
 				 }
+				 //verifie l'egalite entre 2 fichiers
 			 }
 		 }
 	}
