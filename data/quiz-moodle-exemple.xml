@@ -1,10 +1,12 @@
-﻿<?xml version="1.0"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <quiz>
+	<!-- question: 0  -->
 	<question type="category">
 		<category>
 			<text>$course$/Défaut pour 1SA3GL1</text>
 		</category>
 	</question>
+	<!-- question: 37095  -->
 	<question type="calculated">
 		<name>
 			<text>Aire du cercle</text>
@@ -12,9 +14,9 @@
 		<questiontext format="moodle_auto_format">
 			<text>Calcul de l'aire du cercle ayant pour rayon {R}</text>
 		</questiontext>
-		<image></image>
+		<image/>
 		<generalfeedback>
-			<text></text>
+			<text/>
 		</generalfeedback>
 		<defaultgrade>1</defaultgrade>
 		<penalty>0.1</penalty>
@@ -27,7 +29,7 @@
 			<correctanswerformat>1</correctanswerformat>
 			<correctanswerlength>1</correctanswerlength>
 			<feedback>
-				<text></text>
+				<text/>
 			</feedback>
 		</answer>
 		<units>
@@ -104,6 +106,7 @@
 			</dataset_definition>
 		</dataset_definitions>
 	</question>
+	<!-- question: 37096  -->
 	<question type="description">
 		<name>
 			<text>Consigne dispositif électronique</text>
@@ -111,15 +114,16 @@
 		<questiontext format="moodle_auto_format">
 			<text>Pas de calculatrice !</text>
 		</questiontext>
-		<image></image>
+		<image/>
 		<generalfeedback>
-			<text></text>
+			<text/>
 		</generalfeedback>
 		<defaultgrade>0</defaultgrade>
 		<penalty>0</penalty>
 		<hidden>0</hidden>
 		<shuffleanswers>0</shuffleanswers>
 	</question>
+	<!-- question: 37097  -->
 	<question type="essay">
 		<name>
 			<text>Question ouverte</text>
@@ -127,9 +131,9 @@
 		<questiontext format="moodle_auto_format">
 			<text>Ecrire un programme qui affiche Hello world</text>
 		</questiontext>
-		<image></image>
+		<image/>
 		<generalfeedback>
-			<text></text>
+			<text/>
 		</generalfeedback>
 		<defaultgrade>1</defaultgrade>
 		<penalty>0</penalty>
@@ -137,10 +141,11 @@
 		<shuffleanswers>0</shuffleanswers>
 		<answer fraction="0">
 			<feedback>
-				<text></text>
+				<text/>
 			</feedback>
 		</answer>
 	</question>
+	<!-- question: 37098  -->
 	<question type="matching">
 		<name>
 			<text>Serveur d'application / éditeurs</text>
@@ -148,9 +153,9 @@
 		<questiontext format="moodle_auto_format">
 			<text>Relier les serveurs d'applications avec les bons éditeurs</text>
 		</questiontext>
-		<image></image>
+		<image/>
 		<generalfeedback>
-			<text></text>
+			<text/>
 		</generalfeedback>
 		<defaultgrade>1</defaultgrade>
 		<penalty>0.1</penalty>
@@ -181,6 +186,7 @@
 			</answer>
 		</subquestion>
 	</question>
+	<!-- question: 37099  -->
 	<question type="cloze">
 		<name>
 			<text>Question "Cloze" (composite ?)</text>
@@ -193,10 +199,11 @@ a) Est-ce bien? {:MULTICHOICE:=Oui#Bonne réponse~Non#Votre opinion nous indiff�
 b) Quelle note désirez-vous? {3:NUMERICAL:=3:2}</text>
 		</questiontext>
 		<generalfeedback>
-			<text></text>
+			<text/>
 		</generalfeedback>
 		<shuffleanswers>0</shuffleanswers>
 	</question>
+	<!-- question: 37093  -->
 	<question type="multichoice">
 		<name>
 			<text>Architecture à 3 niveaux ?</text>
@@ -210,7 +217,7 @@ b) Quelle note désirez-vous? {3:NUMERICAL:=3:2}</text>
 
     </image_base64>
 		<generalfeedback>
-			<text></text>
+			<text/>
 		</generalfeedback>
 		<defaultgrade>1</defaultgrade>
 		<penalty>0.1</penalty>
@@ -219,13 +226,13 @@ b) Quelle note désirez-vous? {3:NUMERICAL:=3:2}</text>
 		<single>true</single>
 		<shuffleanswers>true</shuffleanswers>
 		<correctfeedback>
-			<text></text>
+			<text/>
 		</correctfeedback>
 		<partiallycorrectfeedback>
-			<text></text>
+			<text/>
 		</partiallycorrectfeedback>
 		<incorrectfeedback>
-			<text></text>
+			<text/>
 		</incorrectfeedback>
 		<answernumbering>none</answernumbering>
 		<answer fraction="-100">
@@ -249,6 +256,7 @@ Une architecture N tiers ou N vaut 3
 			</feedback>
 		</answer>
 	</question>
+	<!-- question: 37092  -->
 	<question type="multichoice">
 		<name>
 			<text>Architectures N tiers</text>
@@ -274,7 +282,7 @@ Une architecture N tiers ou N vaut 3
 			<text>OK</text>
 		</correctfeedback>
 		<partiallycorrectfeedback>
-			<text></text>
+			<text/>
 		</partiallycorrectfeedback>
 		<incorrectfeedback>
 			<text>KO</text>
@@ -321,6 +329,7 @@ Une application web est une application reposant sur une architecture N Tiers
 			</feedback>
 		</answer>
 	</question>
+	<!-- question: 37106  -->
 	<question type="numerical">
 		<name>
 			<text>HTTP 1er protocole de l'Internet</text>
@@ -328,9 +337,9 @@ Une application web est une application reposant sur une architecture N Tiers
 		<questiontext format="moodle_auto_format">
 			<text>En quelle année HTTP devient le premier protocole de l'Internet ?</text>
 		</questiontext>
-		<image></image>
+		<image/>
 		<generalfeedback>
-			<text></text>
+			<text/>
 		</generalfeedback>
 		<defaultgrade>1</defaultgrade>
 		<penalty>0.1</penalty>
@@ -340,10 +349,11 @@ Une application web est une application reposant sur une architecture N Tiers
 			<text>1996</text>
 			<tolerance>0</tolerance>
 			<feedback>
-				<text></text>
+				<text/>
 			</feedback>
 		</answer>
 	</question>
+	<!-- question: 37107  -->
 	<question type="shortanswer">
 		<name>
 			<text>MVC</text>
@@ -351,9 +361,9 @@ Une application web est une application reposant sur une architecture N Tiers
 		<questiontext format="moodle_auto_format">
 			<text>Que signifie MVC ?</text>
 		</questiontext>
-		<image></image>
+		<image/>
 		<generalfeedback>
-			<text></text>
+			<text/>
 		</generalfeedback>
 		<defaultgrade>1</defaultgrade>
 		<penalty>0.1</penalty>
@@ -381,6 +391,7 @@ Modèle vue contrôleur
 			</feedback>
 		</answer>
 	</question>
+	<!-- question: 37105  -->
 	<question type="shortanswer">
 		<name>
 			<text>Premier langage Orienté Objet</text>
@@ -388,9 +399,9 @@ Modèle vue contrôleur
 		<questiontext format="moodle_auto_format">
 			<text>Quel est le premier langage Orienté Objet ?</text>
 		</questiontext>
-		<image></image>
+		<image/>
 		<generalfeedback>
-			<text></text>
+			<text/>
 		</generalfeedback>
 		<defaultgrade>1</defaultgrade>
 		<penalty>0.1</penalty>
@@ -418,6 +429,7 @@ Oui, plus précisément Simula 66
 			</feedback>
 		</answer>
 	</question>
+	<!-- question: 37094  -->
 	<question type="truefalse">
 		<name>
 			<text>Tomcat et JEE</text>
@@ -425,9 +437,9 @@ Oui, plus précisément Simula 66
 		<questiontext format="moodle_auto_format">
 			<text>Tomcat est un conteneur implémentant toutes les spécifications JEE.</text>
 		</questiontext>
-		<image></image>
+		<image/>
 		<generalfeedback>
-			<text></text>
+			<text/>
 		</generalfeedback>
 		<defaultgrade>1</defaultgrade>
 		<penalty>1</penalty>
