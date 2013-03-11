@@ -1,8 +1,8 @@
-<?xml version="1.0"?>
+ï»¿<?xml version="1.0"?>
 <quiz>
 	<question type="category">
 		<category>
-			<text>$course$/Défaut pour 1SA3GL1</text>
+			<text>$course$/DÃ©faut pour 1SA3GL1</text>
 		</category>
 	</question>
 	<question type="calculated">
@@ -106,7 +106,7 @@
 	</question>
 	<question type="description">
 		<name>
-			<text>Consigne dispositif électronique</text>
+			<text>Consigne dispositif Ã©lectronique</text>
 		</name>
 		<questiontext format="moodle_auto_format">
 			<text>Pas de calculatrice !</text>
