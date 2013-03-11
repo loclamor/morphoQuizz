@@ -19,8 +19,12 @@ import de.odysseus.staxon.json.JsonXMLConfigBuilder;
 import de.odysseus.staxon.json.JsonXMLInputFactory;
 import de.odysseus.staxon.json.JsonXMLOutputFactory;
 import de.odysseus.staxon.xml.util.PrettyXMLEventWriter;
-/**.
- * suppression d'avertissement
+
+
+/**
+ * Convertit des fichiers Quizz de Moodle. XML->JSON et JSON->XML
+ * @author altarBeastiful
+ *
  */
 @SuppressWarnings("restriction")
 public class QuizzConverter {
@@ -95,21 +99,26 @@ public class QuizzConverter {
 		InputStream is = new FileInputStream(jsonInput);
 		OutputStream os = new FileOutputStream(xmlOutput);
 
-		JsonXMLConfig config = new JsonXMLConfigBuilder().multiplePI(false).build();
+		JsonXMLConfig config = new JsonXMLConfigBuilder().multiplePI(false)
+				.build();
 		try {
 			/*
 			 * Create reader (JSON).
 			 */
 			XMLEventReader reader = new JsonXMLInputFactory(config).createXMLEventReader(is);
+
 			/*
 			 * Create writer (XML).
 			 */
-			XMLEventWriter writer = XMLOutputFactory.newInstance().createXMLEventWriter(os);
+			XMLEventWriter writer = XMLOutputFactory.newInstance()
+					.createXMLEventWriter(os);
 			writer = new PrettyXMLEventWriter(writer); // format output
+
 			/*
 			 * Copy events from reader to writer.
 			 */
 			writer.add(reader);
+
 			/*
 			 * Close reader/writer.
 			 */
@@ -117,8 +126,8 @@ public class QuizzConverter {
 			writer.close();
 		} finally {
 			/*
-			 * As per StAX specification, XMLEventReader/Writer.close() doesn't close
-			 * the underlying stream.
+			 * As per StAX specification, XMLEventReader/Writer.close() doesn't
+			 * close the underlying stream.
 			 */
 			os.close();
 			is.close();
