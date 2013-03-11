@@ -143,10 +143,10 @@
 	</question>
 	<question type="matching">
 		<name>
-			<text>Serveur d'application / éditeurs</text>
+			<text>Serveur d'application / Ã©diteurs</text>
 		</name>
 		<questiontext format="moodle_auto_format">
-			<text>Relier les serveurs d'applications avec les bons éditeurs</text>
+			<text>Relier les serveurs d'applications avec les bons Ã©diteurs</text>
 		</questiontext>
 		<image></image>
 		<generalfeedback>
@@ -186,11 +186,11 @@
 			<text>Question "Cloze" (composite ?)</text>
 		</name>
 		<questiontext>
-			<text>Cette question comporte du texte dans lequel on a directement intégré des réponses à choix multiples {1:MULTICHOICE:Mauvaise réponse#Feedback pour cette mauvaise réponse~Une autre mauvaise réponse#Feedback pour cette autre mauvaise réponse~=Bonne réponse#Feedback pour la bonne réponse~%50%Réponse qui vaut la moitié des points#Feedback pour la question qui vaut la moitié des points} ; vous devez maintenant répondre à une question courte{1:SHORTANSWER:Mauvaise réponse#Feedback pour cette mauvaise réponse~=Bonne réponse#Feedback pour la bonne réponse~%50%Réponse qui vaut la moitié des points#Feedback pour la question qui vaut la moitié des points}. Nous avons finalement une question qui demande une réponse numérique avec point décimal {2:NUMERICAL:=23.8:0.1#Feedback pour la bonne réponse 23.8~%50%23.8:2#Feedback pour la réponse qui donne la moitié des points}.
+			<text>Cette question comporte du texte dans lequel on a directement intÃ©grÃ© des rÃ©ponses Ã  choix multiples {1:MULTICHOICE:Mauvaise rÃ©ponse#Feedback pour cette mauvaise rÃ©ponse~Une autre mauvaise rÃ©ponse#Feedback pour cette autre mauvaise rÃ©ponse~=Bonne rÃ©ponse#Feedback pour la bonne rÃ©ponse~%50%RÃ©ponse qui vaut la moitiÃ© des points#Feedback pour la question qui vaut la moitiÃ© des points}Â ; vous devez maintenant rÃ©pondre Ã  une question courte{1:SHORTANSWER:Mauvaise rÃ©ponse#Feedback pour cette mauvaise rÃ©ponse~=Bonne rÃ©ponse#Feedback pour la bonne rÃ©ponse~%50%RÃ©ponse qui vaut la moitiÃ© des points#Feedback pour la question qui vaut la moitiÃ© des points}. Nous avons finalement une question qui demande une rÃ©ponse numÃ©rique avec point dÃ©cimal {2:NUMERICAL:=23.8:0.1#Feedback pour la bonne rÃ©ponse 23.8~%50%23.8:2#Feedback pour la rÃ©ponse qui donne la moitiÃ© des points}.
 
-Remarquez que les adresses URL comme www.moodle.org et les binettes :-) sont correctement interprétées :
-a) Est-ce bien? {:MULTICHOICE:=Oui#Bonne réponse~Non#Votre opinion nous indiffère !}
-b) Quelle note désirez-vous? {3:NUMERICAL:=3:2}</text>
+Remarquez que les adresses URL comme www.moodle.org et les binettes :-) sont correctement interprÃ©tÃ©esÂ :
+a) Est-ce bien? {:MULTICHOICE:=Oui#Bonne rÃ©ponse~Non#Votre opinion nous indiffÃ¨reÂ !}
+b) Quelle note dÃ©sirez-vous? {3:NUMERICAL:=3:2}</text>
 		</questiontext>
 		<generalfeedback>
 			<text></text>
@@ -199,10 +199,10 @@ b) Quelle note désirez-vous? {3:NUMERICAL:=3:2}</text>
 	</question>
 	<question type="multichoice">
 		<name>
-			<text>Architecture à 3 niveaux ?</text>
+			<text>Architecture Ã  3 niveaux ?</text>
 		</name>
 		<questiontext format="html">
-			<text>Que désigne une architecture à 3 niveaux ?</text>
+			<text>Que dÃ©signe une architecture Ã  3 niveaux ?</text>
 		</questiontext>
 		<image>backupdata/446px-Uncle_Sam_pointing_finger_.jpg</image>
 		<image_base64>
@@ -234,7 +234,7 @@ Une architecture MVC
         </text>
 			<feedback>
 				<text>
-Une application  non distribuée peut implémentée MVC.
+Une application  non distribuÃ©e peut implÃ©mentÃ©e MVC.
           </text>
 			</feedback>
 		</answer>
@@ -262,7 +262,7 @@ Une architecture N tiers ou N vaut 3
 
     </image_base64>
 		<generalfeedback>
-			<text>Rappel N tiers : architectures multi-niveaux pouvant être distribuées sur plusieurs noeuds physique d'un réseau.</text>
+			<text>Rappel N tiers : architectures multi-niveaux pouvant Ãªtre distribuÃ©es sur plusieurs noeuds physique d'un rÃ©seau.</text>
 		</generalfeedback>
 		<defaultgrade>1</defaultgrade>
 		<penalty>0.1</penalty>
@@ -282,11 +282,11 @@ Une architecture N tiers ou N vaut 3
 		<answernumbering>abc</answernumbering>
 		<answer fraction="0">
 			<text>
-Une architecture N-tiers est uniquement une architecture à base de Web Services
+Une architecture N-tiers est uniquement une architecture Ã  base de Web Services
         </text>
 			<feedback>
 				<text>
-Une architecture distribuée peut reposer par exemple sur RMI
+Une architecture distribuÃ©e peut reposer par exemple sur RMI
           </text>
 			</feedback>
 		</answer>
@@ -302,7 +302,7 @@ Une architecture client serveur est une architecture N-tiers
 		</answer>
 		<answer fraction="33.333">
 			<text>
-Une architecture N-tiers correspond à une architecture d'application distribuée sur plusieurs noeuds physiques
+Une architecture N-tiers correspond Ã  une architecture d'application distribuÃ©e sur plusieurs noeuds physiques
         </text>
 			<feedback>
 				<text>
@@ -326,7 +326,7 @@ Une application web est une application reposant sur une architecture N Tiers
 			<text>HTTP 1er protocole de l'Internet</text>
 		</name>
 		<questiontext format="moodle_auto_format">
-			<text>En quelle année HTTP devient le premier protocole de l'Internet ?</text>
+			<text>En quelle annÃ©e HTTP devient le premier protocole de l'Internet ?</text>
 		</questiontext>
 		<image></image>
 		<generalfeedback>
@@ -372,7 +372,7 @@ Model View Controller
 		</answer>
 		<answer fraction="100">
 			<text>
-Modèle vue contrôleur
+ModÃ¨le vue contrÃ´leur
       </text>
 			<feedback>
 				<text>
@@ -383,10 +383,10 @@ Modèle vue contrôleur
 	</question>
 	<question type="shortanswer">
 		<name>
-			<text>Premier langage Orienté Objet</text>
+			<text>Premier langage OrientÃ© Objet</text>
 		</name>
 		<questiontext format="moodle_auto_format">
-			<text>Quel est le premier langage Orienté Objet ?</text>
+			<text>Quel est le premier langage OrientÃ© Objet ?</text>
 		</questiontext>
 		<image></image>
 		<generalfeedback>
@@ -413,7 +413,7 @@ Simula
       </text>
 			<feedback>
 				<text>
-Oui, plus précisément Simula 66
+Oui, plus prÃ©cisÃ©ment Simula 66
         </text>
 			</feedback>
 		</answer>
@@ -423,7 +423,7 @@ Oui, plus précisément Simula 66
 			<text>Tomcat et JEE</text>
 		</name>
 		<questiontext format="moodle_auto_format">
-			<text>Tomcat est un conteneur implémentant toutes les spécifications JEE.</text>
+			<text>Tomcat est un conteneur implÃ©mentant toutes les spÃ©cifications JEE.</text>
 		</questiontext>
 		<image></image>
 		<generalfeedback>
