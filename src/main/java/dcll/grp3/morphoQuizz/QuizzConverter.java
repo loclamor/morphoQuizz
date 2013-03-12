@@ -5,7 +5,11 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.io.OutputStream;
+import java.io.OutputStreamWriter;
+import java.io.Reader;
+import java.io.Writer;
 
 import javax.xml.stream.FactoryConfigurationError;
 import javax.xml.stream.XMLEventReader;
@@ -38,8 +42,12 @@ public class QuizzConverter {
 	public static void xmlQuizzToJson(File xmlInput, File jsonOutput)
 			throws IOException, XMLStreamException,
 			javax.xml.stream.FactoryConfigurationError {
+		
 		InputStream is = new FileInputStream(xmlInput);
 		OutputStream os = new FileOutputStream(jsonOutput);
+		
+		Reader r = new InputStreamReader(is, "UTF-8");
+		Writer w = new OutputStreamWriter(os, "UTF-8");
 
 		JsonXMLConfig config = new JsonXMLConfigBuilder().autoArray(true)
 				.autoPrimitive(true).prettyPrint(true).build();
@@ -48,13 +56,13 @@ public class QuizzConverter {
 			 * Create reader (XML).
 			 */
 			XMLEventReader reader = XMLInputFactory.newInstance()
-					.createXMLEventReader(is);
+					.createXMLEventReader(r);
 
 			/*
 			 * Create writer (JSON).
 			 */
 			XMLEventWriter writer = new JsonXMLOutputFactory(config)
-					.createXMLEventWriter(os);
+					.createXMLEventWriter(w);
 
 			/*
 			 * Copy events from reader to writer.
@@ -71,6 +79,8 @@ public class QuizzConverter {
 			 * As per StAX specification, XMLEventReader/Writer.close() doesn't
 			 * close the underlying stream.
 			 */
+			r.close();
+			w.close();
 			os.close();
 			is.close();
 		}
@@ -90,20 +100,24 @@ public class QuizzConverter {
 	 */
 	public static void jsonQuizzToXML(File jsonInput, File xmlOutput)
 			throws IOException, XMLStreamException, FactoryConfigurationError {
+		
 		InputStream is = new FileInputStream(jsonInput);
 		OutputStream os = new FileOutputStream(xmlOutput);
+		
+		Reader r = new InputStreamReader(is, "UTF-8");
+		Writer w = new OutputStreamWriter(os, "UTF-8");
 
 		JsonXMLConfig config = new JsonXMLConfigBuilder().multiplePI(false).build();
 		try {
 			/*
 			 * Create reader (JSON).
 			 */
-			XMLEventReader reader = new JsonXMLInputFactory(config).createXMLEventReader(is);
+			XMLEventReader reader = new JsonXMLInputFactory(config).createXMLEventReader(r);
 			
 			/*
 			 * Create writer (XML).
 			 */
-			XMLEventWriter writer = XMLOutputFactory.newInstance().createXMLEventWriter(os);
+			XMLEventWriter writer = XMLOutputFactory.newInstance().createXMLEventWriter(w);
 			writer = new PrettyXMLEventWriter(writer); // format output
 			
 			/*
@@ -121,6 +135,8 @@ public class QuizzConverter {
 			 * As per StAX specification, XMLEventReader/Writer.close() doesn't close
 			 * the underlying stream.
 			 */
+			r.close();
+			w.close();
 			os.close();
 			is.close();
 		}
