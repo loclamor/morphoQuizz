@@ -10,24 +10,39 @@ import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.IOUtils;
 import org.custommonkey.xmlunit.XMLTestCase;
 import org.custommonkey.xmlunit.XMLUnit;
-
+/**.
+ * class de conversion de fichiers XML/Json
+ */
 public class QuizzConverterTest extends XMLTestCase {
-
+     /**.
+     * dossier contenant les fichiers de test
+     */
     protected File testFolder;
-
-    public QuizzConverterTest(String testName) {
+    /**.
+     * tester la conversion du quizz
+     * @param testName test du nom
+     */
+    public QuizzConverterTest(final String testName) {
         super(testName);
     }
-
+    /**.
+     * test
+     * @return Test
+     */
     public static Test suite() {
         return new TestSuite(QuizzConverterTest.class);
     }
-
-    public void testQuizzConverter() {
+    /**.
+     * tester le quizz converter
+     */
+    public final void testQuizzConverter() {
         assertTrue(true);
     }
-
-    public void setUp() throws Exception {
+    /**.
+     * setUp
+     * @throws Exception creation
+     */
+    public final void setUp() throws Exception {
         super.setUp();
         // System.out.println("SetUp");
 
@@ -36,16 +51,22 @@ public class QuizzConverterTest extends XMLTestCase {
         testFolder.mkdir();
 
     }
-
-    public void tearDown() throws Exception {
+    /**.
+     * tearDown
+     * @throws Exception tearDown
+     */
+    public final void tearDown() throws Exception {
         super.tearDown();
         // System.out.println("TearDown");
 
         // suppression des fichiers de tests
         FileUtils.deleteDirectory(testFolder);
     }
-
-    public void testXMLQuizzToJson() throws Exception {
+    /**.
+     * test XML vers Json
+     * @throws Exception conversion
+     */
+    public final void testXMLQuizzToJson() throws Exception {
         // System.out.println("testXMLQuizzToJson");
         File testInput, testOutput, testOutput2;
         testInput = new File("data/quiz-moodle-exemple.xml");
@@ -85,8 +106,11 @@ public class QuizzConverterTest extends XMLTestCase {
             converti.close();
         }
     }
-
-    public void testJsonQuizzToXML() throws Exception {
+    /**.
+     * test Json vers XML
+     * @throws Exception conversion
+     */
+    public final void testJsonQuizzToXML() throws Exception {
         // System.out.println("testJsonQuizzToXML");
         // selection des fichiers json dans data tmp
         File testInput, testOutput, testOutput2;

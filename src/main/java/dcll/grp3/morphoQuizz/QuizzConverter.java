@@ -27,7 +27,7 @@ import de.odysseus.staxon.xml.util.PrettyXMLEventWriter;
 @SuppressWarnings("restriction")
 public class QuizzConverter {
 
-    /**
+    /**.
      * Lit le fichier de quizz XML xmlInput, ecrit le test convertit en JSON
      * dans le fichier jsonOutput
      *
@@ -35,11 +35,11 @@ public class QuizzConverter {
      *            Ficher de Quizz XML
      * @param jsonOutput
      *            Fichier de sortie JSON
-     * @throws IOException
-     * @throws javax.xml.stream.FactoryConfigurationError
-     * @throws XMLStreamException
+     * @throws IOException exception entrée/sortie
+     * @throws FactoryConfigurationError Erreur de configurations
+     * @throws XMLStreamException exception de flux XML
      */
-    public static void xmlQuizzToJson(File xmlInput, File jsonOutput)
+    public static void xmlQuizzToJson(final File xmlInput, final File jsonOutput)
             throws IOException, XMLStreamException,
             javax.xml.stream.FactoryConfigurationError {
 
@@ -94,11 +94,11 @@ public class QuizzConverter {
      *            Ficher de Quizz Json
      * @param xmlOutput
      *            Fichier de sortie XML
-     * @throws IOException
-     * @throws FactoryConfigurationError
-     * @throws XMLStreamException
+     * @throws IOException exception entrée/sortie
+     * @throws FactoryConfigurationError Erreur de configurations
+     * @throws XMLStreamException exception de flux XML
      */
-    public static void jsonQuizzToXML(File jsonInput, File xmlOutput)
+    public static void jsonQuizzToXML(final File jsonInput, final File xmlOutput)
             throws IOException, XMLStreamException, FactoryConfigurationError {
 
         InputStream is = new FileInputStream(jsonInput);
