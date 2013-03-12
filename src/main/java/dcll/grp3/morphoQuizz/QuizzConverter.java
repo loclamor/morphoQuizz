@@ -30,7 +30,7 @@ public class QuizzConverter {
     /**
      * Lit le fichier de quizz XML xmlInput, ecrit le test convertit en JSON
      * dans le fichier jsonOutput
-     * 
+     *
      * @param xmlInput
      *            Ficher de Quizz XML
      * @param jsonOutput
@@ -86,10 +86,10 @@ public class QuizzConverter {
         }
     }
 
-    /**
+    /**.
      * Lit le fichier de quizz json jsonInput, ecrit le test convertit en XML
      * dans le fichier xmlOutput
-     * 
+     *.
      * @param jsonInput
      *            Ficher de Quizz Json
      * @param xmlOutput
