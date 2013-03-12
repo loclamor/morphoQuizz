@@ -63,7 +63,7 @@ public class QuizzConverterTest extends XMLTestCase {
 		assertTrue("Conversion XML en JSON faite", testOutput.exists());
 		
 		//RECONVERSION JSON2XML pour verifier l'egalite entre les 2 fichiers
-		System.out.println("reconversion JSON à XML");
+		//System.out.println("reconversion JSON à XML");
 		QuizzConverter.jsonQuizzToXML(testOutput, testOutput2);
 		assertTrue("Reconversion JSON en XML faite", testOutput2.exists());
 		
@@ -74,9 +74,9 @@ public class QuizzConverterTest extends XMLTestCase {
 			String inputXML = IOUtils.toString(original);
 			String outputXML = IOUtils.toString(converti);
 			
-			String myControlXML = "<msg><uuid>0x00435A8C</uuid></msg>";
-			String myTestXML = "<msg><uuid>0x00435A8C</uuid></msg>";
-			assertXMLEqual(myControlXML, myTestXML);
+//			String myControlXML = "<msg><uuid>0x00435A8C</uuid></msg>";
+//			String myTestXML = "<msg><uuid>0x00435A8C</uuid></msg>";
+//			assertXMLEqual(myControlXML, myTestXML);
 	
 			XMLUnit.setIgnoreWhitespace(true);
 			XMLUnit.setIgnoreComments(true);
