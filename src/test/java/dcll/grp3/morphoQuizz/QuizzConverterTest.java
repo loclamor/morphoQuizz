@@ -3,6 +3,8 @@ package dcll.grp3.morphoQuizz;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.InputStream;
+
+import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.IOUtils;
 import org.custommonkey.xmlunit.XMLTestCase;
 
@@ -44,12 +46,10 @@ public class QuizzConverterTest extends XMLTestCase {
 	 public void tearDown() throws Exception {
 		 super.tearDown();
 		 System.out.println("TearDown");
-		 //suppression des fichiers de tests
-		 for (int i=0; i<filesNames.length; i++) {
-			 File file = new File(testFolder.getPath() + "/" + filesNames[i]);
-			 //file.delete();
-		 }
-		 //testFolder.delete();
+		 
+		 //suppression des fichiers de tests		 
+		 FileUtils.deleteDirectory(testFolder);
+		 
 	 }
 	 
 	public void testXMLQuizzToJson ()
@@ -99,14 +99,19 @@ public class QuizzConverterTest extends XMLTestCase {
 		 assertTrue("Reconversion XML en JSON faite", testOutput2.exists());
 		 
 		 
-		 String inputJSON = IOUtils.toString(new FileInputStream(testInput));
-		 String outputJSON = IOUtils.toString(new FileInputStream(testOutput2));
+		 FileInputStream inputStream = new FileInputStream(testInput);
+		 FileInputStream outputStream = new FileInputStream(testOutput2);
+		 String inputJSON = IOUtils.toString(inputStream);
+		 String outputJSON = IOUtils.toString(outputStream);
 		 
 		 //nettoyage des JSON
 		 inputJSON = inputJSON.replaceAll("[\r\n\t]+", "");
 		 outputJSON = outputJSON.replaceAll("[\r\n\t]+", "");
 		 
 		 assertEquals("JSON origine et JSON générés egaux", inputJSON, outputJSON);
+		 
+		 inputStream.close();
+		 outputStream.close();
 		 
 	}
 	
