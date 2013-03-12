@@ -3,7 +3,6 @@ package dcll.grp3.morphoQuizz;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.InputStream;
-
 import org.apache.commons.io.IOUtils;
 import org.custommonkey.xmlunit.XMLTestCase;
 
@@ -86,26 +85,29 @@ public class QuizzConverterTest extends XMLTestCase {
 			throws Exception {
 		System.out.println("testJsonQuizzToXML");
 		//selection des fichiers json dans data tmp
-		 for (int i=0; i<filesNames.length; i++) {
-			 testInput = new File("data/" + filesNames[i]);
-			 testOutput = new File(testFolder.getPath() + "/testJSON2XML_" + filesNames[i].substring(0,filesNames[i].indexOf(".")) + ".xml");
-			 testOutput2 = new File(testFolder.getPath() + "/testJSON2XML_" + filesNames[i].substring(0,filesNames[i].indexOf(".")) + "2.json");
-			 
-			 if (testInput.getName().lastIndexOf(".") > 0) {
-				 ext = testInput.getName().substring(testInput.getName().lastIndexOf("."));
-				 //traitement selon l'extension
-				 if (ext.equals(".json")) {
-					 
-					 System.out.println("conversion JSON à XML");
-					 QuizzConverter.jsonQuizzToXML(testInput, testOutput);
-					 assertTrue(testOutput.exists());
-					 
-					 System.out.println("reconversion XML à JSON");
-					 QuizzConverter.xmlQuizzToJson(testOutput, testOutput2);
-					 assertTrue(testOutput2.exists());
-				 }
-			 }
-		 }
+		 
+		 testInput = new File("data/quiz-moodle-exemple.json");
+		 testOutput = new File(testFolder.getPath() + "/testJSON2XML_json2xml.xml");
+		 testOutput2 = new File(testFolder.getPath() + "/testJSON2XML_xml2json.json");
+		 
+		 System.out.println("conversion JSON à XML");
+		 QuizzConverter.jsonQuizzToXML(testInput, testOutput);
+		 assertTrue("Conversion JSON en XML faite", testOutput.exists());
+		 
+		 System.out.println("reconversion XML à JSON");
+		 QuizzConverter.xmlQuizzToJson(testOutput, testOutput2);
+		 assertTrue("Reconversion XML en JSON faite", testOutput2.exists());
+		 
+		 
+		 String inputJSON = IOUtils.toString(new FileInputStream(testInput));
+		 String outputJSON = IOUtils.toString(new FileInputStream(testOutput2));
+		 
+		 //nettoyage des JSON
+		 inputJSON = inputJSON.replaceAll("[\r\n\t]+", "");
+		 outputJSON = outputJSON.replaceAll("[\r\n\t]+", "");
+		 
+		 assertEquals("JSON origine et JSON générés egaux", inputJSON, outputJSON);
+		 
 	}
 	
 	

@@ -113,7 +113,7 @@ public class QuizzConverter {
 			 * Create reader (JSON).
 			 */
 			XMLEventReader reader = new JsonXMLInputFactory(config).createXMLEventReader(r);
-			
+
 			/*
 			 * Create writer (XML).
 			 */
