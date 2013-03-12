@@ -9,12 +9,12 @@ import junit.framework.TestSuite;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.IOUtils;
 import org.custommonkey.xmlunit.XMLTestCase;
+import org.custommonkey.xmlunit.XMLUnit;
 
 public class QuizzConverterTest extends XMLTestCase {
 	
 	protected String[] filesNames = { "quiz-moodle-exemple.xml", "quiz-moodle-exemple.json" };
 	protected File testFolder, testInput, testOutput, testOutput2;
-	protected String ext;
 	
 	public QuizzConverterTest (String testName) 
 	{
@@ -70,7 +70,7 @@ public class QuizzConverterTest extends XMLTestCase {
 		FileInputStream original = new FileInputStream(testInput);
 		FileInputStream converti = new FileInputStream(testOutput2);
 		
-		try{			
+		try {			
 			String inputXML = IOUtils.toString(original);
 			String outputXML = IOUtils.toString(converti);
 			
@@ -78,8 +78,13 @@ public class QuizzConverterTest extends XMLTestCase {
 			String myTestXML = "<msg><uuid>0x00435A8C</uuid></msg>";
 			assertXMLEqual(myControlXML, myTestXML);
 	
-			assertXMLEqual("fichiers XML egaux", inputXML, outputXML);
-		}finally{
+			XMLUnit.setIgnoreWhitespace(true);
+			XMLUnit.setIgnoreComments(true);
+			
+			assertXMLEqual("fichiers XML non egaux", inputXML, outputXML);
+
+		}
+		finally {
 			original.close();
 			converti.close();
 		}
