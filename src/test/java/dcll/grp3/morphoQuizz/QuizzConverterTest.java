@@ -2,12 +2,13 @@ package dcll.grp3.morphoQuizz;
 
 import java.io.File;
 import java.io.FileInputStream;
-import org.apache.commons.io.FileUtils;
-import org.apache.commons.io.IOUtils;
-import org.custommonkey.xmlunit.XMLTestCase;
 
 import junit.framework.Test;
 import junit.framework.TestSuite;
+
+import org.apache.commons.io.FileUtils;
+import org.apache.commons.io.IOUtils;
+import org.custommonkey.xmlunit.XMLTestCase;
 
 public class QuizzConverterTest extends XMLTestCase {
 	
@@ -47,7 +48,6 @@ public class QuizzConverterTest extends XMLTestCase {
 		 
 		 //suppression des fichiers de tests		 
 		 FileUtils.deleteDirectory(testFolder);
-		 
 	 }
 	 
 	public void testXMLQuizzToJson ()
@@ -69,17 +69,20 @@ public class QuizzConverterTest extends XMLTestCase {
 		
 		FileInputStream original = new FileInputStream(testInput);
 		FileInputStream converti = new FileInputStream(testOutput2);
-		String inputXML = IOUtils.toString(original);
-		String outputXML = IOUtils.toString(converti);
 		
-		String myControlXML = "<msg><uuid>0x00435A8C</uuid></msg>";
-		String myTestXML = "<msg><uuid>0x00435A8C</uuid></msg>";
-		assertXMLEqual(myControlXML, myTestXML);
-		
-		assertXMLEqual("fichiers XML egaux", inputXML, outputXML);
-		
-		original.close();
-		converti.close();
+		try{			
+			String inputXML = IOUtils.toString(original);
+			String outputXML = IOUtils.toString(converti);
+			
+			String myControlXML = "<msg><uuid>0x00435A8C</uuid></msg>";
+			String myTestXML = "<msg><uuid>0x00435A8C</uuid></msg>";
+			assertXMLEqual(myControlXML, myTestXML);
+	
+			assertXMLEqual("fichiers XML egaux", inputXML, outputXML);
+		}finally{
+			original.close();
+			converti.close();
+		}
 	}
 	
 	public void testJsonQuizzToXML ()
@@ -101,17 +104,20 @@ public class QuizzConverterTest extends XMLTestCase {
 		 
 		 FileInputStream inputStream = new FileInputStream(testInput);
 		 FileInputStream outputStream = new FileInputStream(testOutput2);
-		 String inputJSON = IOUtils.toString(inputStream);
-		 String outputJSON = IOUtils.toString(outputStream);
 		 
-		 //nettoyage des JSON
-		 inputJSON = inputJSON.replaceAll("[\r\n\t]+", "");
-		 outputJSON = outputJSON.replaceAll("[\r\n\t]+", "");
-		 
-		 assertEquals("JSON origine et JSON générés egaux", inputJSON, outputJSON);
-		 
-		 inputStream.close();
-		 outputStream.close();
+		 try{
+			 String inputJSON = IOUtils.toString(inputStream);
+			 String outputJSON = IOUtils.toString(outputStream);
+			 
+			 //nettoyage des JSON
+			 inputJSON = inputJSON.replaceAll("[\r\n\t]+", "");
+			 outputJSON = outputJSON.replaceAll("[\r\n\t]+", "");
+			 
+			 assertEquals("JSON origine et JSON générés egaux", inputJSON, outputJSON);
+		 }finally{
+			 inputStream.close();
+			 outputStream.close();
+		 }
 		 
 	}
 	
