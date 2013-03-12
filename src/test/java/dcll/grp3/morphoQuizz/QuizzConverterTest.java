@@ -2,8 +2,6 @@ package dcll.grp3.morphoQuizz;
 
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.InputStream;
-
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.IOUtils;
 import org.custommonkey.xmlunit.XMLTestCase;
@@ -55,30 +53,33 @@ public class QuizzConverterTest extends XMLTestCase {
 	public void testXMLQuizzToJson ()
 			throws Exception {
 		System.out.println("testXMLQuizzToJson");
-		 //selection des fichiers xml dans data tmp
-		 for (int i=0; i<filesNames.length; i++) {
-			 testInput = new File("data/" + filesNames[i]);
-			 testOutput = new File(testFolder.getPath() + "/" + filesNames[i].substring(0,filesNames[i].indexOf(".")) + ".json");
-			 testOutput2 = new File(testFolder.getPath() + "/" + filesNames[i].substring(0,filesNames[i].indexOf(".")) + "2.xml");
-			 InputStream original = new FileInputStream(testInput);
-			 InputStream converti = new FileInputStream(testOutput2);
-			 if (testInput.getName().lastIndexOf(".") > 0) {
-				 ext = testInput.getName().substring(testInput.getName().lastIndexOf("."));
-				 //traitement selon l'extension
-				 if (ext.equals(".xml")) {
-					 QuizzConverter.xmlQuizzToJson(testInput, testOutput);
-					 assertTrue(testOutput.exists());
-				 }
-				 //verifie l'egalite entre 2 fichiers
-				 if (ext.equals(".json")) {
-					 QuizzConverter.jsonQuizzToXML(testOutput, testOutput2);
-					 String myControlXML = "<msg><uuid>0x00435A8C</uuid></msg>";
-					 String myTestXML = "<msg><uuid>0x00435A8C</uuid></msg>";
-					 assertXMLEqual(myControlXML, myTestXML);
-				 }
-				 assertXMLEqual(IOUtils.toString(original), IOUtils.toString(converti));
-			 }
-		 }
+		testInput = new File("data/quiz-moodle-exemple.xml");
+		testOutput = new File(testFolder.getPath() + "/testXML2JSON_xml2json.json");
+		testOutput2 = new File(testFolder.getPath() + "/testXML2JSON_json2xml.xml");
+		
+		//conversion XML2JSON
+		System.out.println("conversion XML à JSON");
+		QuizzConverter.xmlQuizzToJson(testInput, testOutput);
+		assertTrue("Conversion XML en JSON faite", testOutput.exists());
+		
+		//RECONVERSION JSON2XML pour verifier l'egalite entre les 2 fichiers
+		System.out.println("reconversion JSON à XML");
+		QuizzConverter.jsonQuizzToXML(testOutput, testOutput2);
+		assertTrue("Reconversion JSON en XML faite", testOutput2.exists());
+		
+		FileInputStream original = new FileInputStream(testInput);
+		FileInputStream converti = new FileInputStream(testOutput2);
+		String inputXML = IOUtils.toString(original);
+		String outputXML = IOUtils.toString(converti);
+		
+		String myControlXML = "<msg><uuid>0x00435A8C</uuid></msg>";
+		String myTestXML = "<msg><uuid>0x00435A8C</uuid></msg>";
+		assertXMLEqual(myControlXML, myTestXML);
+		
+		assertXMLEqual("fichiers XML egaux", inputXML, outputXML);
+		
+		original.close();
+		converti.close();
 	}
 	
 	public void testJsonQuizzToXML ()
@@ -97,7 +98,6 @@ public class QuizzConverterTest extends XMLTestCase {
 		 System.out.println("reconversion XML à JSON");
 		 QuizzConverter.xmlQuizzToJson(testOutput, testOutput2);
 		 assertTrue("Reconversion XML en JSON faite", testOutput2.exists());
-		 
 		 
 		 FileInputStream inputStream = new FileInputStream(testInput);
 		 FileInputStream outputStream = new FileInputStream(testOutput2);
