@@ -13,8 +13,7 @@ import org.custommonkey.xmlunit.XMLUnit;
 
 public class QuizzConverterTest extends XMLTestCase {
 	
-	protected String[] filesNames = { "quiz-moodle-exemple.xml", "quiz-moodle-exemple.json" };
-	protected File testFolder, testInput, testOutput, testOutput2;
+	protected File testFolder;
 	
 	public QuizzConverterTest (String testName) 
 	{
@@ -33,7 +32,7 @@ public class QuizzConverterTest extends XMLTestCase {
 	 
 	 public void setUp() throws Exception {
 		 super.setUp();
-		 System.out.println("SetUp");
+		 //System.out.println("SetUp");
 
 		 //creation du dossier data
 		 testFolder = new File("data/tmp");
@@ -44,7 +43,7 @@ public class QuizzConverterTest extends XMLTestCase {
 
 	 public void tearDown() throws Exception {
 		 super.tearDown();
-		 System.out.println("TearDown");
+		 //System.out.println("TearDown");
 		 
 		 //suppression des fichiers de tests		 
 		 FileUtils.deleteDirectory(testFolder);
@@ -52,13 +51,14 @@ public class QuizzConverterTest extends XMLTestCase {
 	 
 	public void testXMLQuizzToJson ()
 			throws Exception {
-		System.out.println("testXMLQuizzToJson");
+		//System.out.println("testXMLQuizzToJson");
+		File testInput, testOutput, testOutput2;
 		testInput = new File("data/quiz-moodle-exemple.xml");
 		testOutput = new File(testFolder.getPath() + "/testXML2JSON_xml2json.json");
 		testOutput2 = new File(testFolder.getPath() + "/testXML2JSON_json2xml.xml");
 		
 		//conversion XML2JSON
-		System.out.println("conversion XML à JSON");
+		//System.out.println("conversion XML à JSON");
 		QuizzConverter.xmlQuizzToJson(testInput, testOutput);
 		assertTrue("Conversion XML en JSON faite", testOutput.exists());
 		
@@ -92,25 +92,25 @@ public class QuizzConverterTest extends XMLTestCase {
 	
 	public void testJsonQuizzToXML ()
 			throws Exception {
-		System.out.println("testJsonQuizzToXML");
+		//System.out.println("testJsonQuizzToXML");
 		//selection des fichiers json dans data tmp
-		 
+		 File testInput, testOutput, testOutput2;
 		 testInput = new File("data/quiz-moodle-exemple.json");
 		 testOutput = new File(testFolder.getPath() + "/testJSON2XML_json2xml.xml");
 		 testOutput2 = new File(testFolder.getPath() + "/testJSON2XML_xml2json.json");
 		 
-		 System.out.println("conversion JSON à XML");
+		 //System.out.println("conversion JSON à XML");
 		 QuizzConverter.jsonQuizzToXML(testInput, testOutput);
 		 assertTrue("Conversion JSON en XML faite", testOutput.exists());
 		 
-		 System.out.println("reconversion XML à JSON");
+		 //System.out.println("reconversion XML à JSON");
 		 QuizzConverter.xmlQuizzToJson(testOutput, testOutput2);
 		 assertTrue("Reconversion XML en JSON faite", testOutput2.exists());
 		 
 		 FileInputStream inputStream = new FileInputStream(testInput);
 		 FileInputStream outputStream = new FileInputStream(testOutput2);
 		 
-		 try{
+		 try {
 			 String inputJSON = IOUtils.toString(inputStream);
 			 String outputJSON = IOUtils.toString(outputStream);
 			 
@@ -119,7 +119,8 @@ public class QuizzConverterTest extends XMLTestCase {
 			 outputJSON = outputJSON.replaceAll("[\r\n\t]+", "");
 			 
 			 assertEquals("JSON origine et JSON générés egaux", inputJSON, outputJSON);
-		 }finally{
+		 }
+		 finally {
 			 inputStream.close();
 			 outputStream.close();
 		 }
