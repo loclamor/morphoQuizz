@@ -58,6 +58,8 @@ public class AppTest extends TestCase {
         String[] xmlToJson = {"-xj", "data/quiz-moodle-exemple.xml", testFolder.getPath() + "/testAPP.json"};
         String[] jsonToXml = {"-jx", "data/quiz-moodle-exemple.json", testFolder.getPath() + "/testAPP.xml"};
         String[] illegalArg = {"illegal arg", "data/quiz-moodle-exemple.xml", testFolder.getPath() + "/testAPP.json"};
+        String[] illegalNumberArg = {"illegal test arguments"};
+
         
         App.main(xmlToJson);
         assertTrue(new File(xmlToJson[2]).exists());
@@ -66,10 +68,15 @@ public class AppTest extends TestCase {
         assertTrue(new File(jsonToXml[2]).exists());
         
         try{
-            App.main(jsonToXml);
-            assertTrue(new File(jsonToXml[2]).exists());
+            App.main(illegalArg);
         }catch(IllegalArgumentException e){
-            assertTrue(true);
+            assertTrue("IllegalArgumentException",true);
+        }
+        
+        try{
+            App.main(illegalNumberArg);
+        }catch(IllegalArgumentException e){
+            assertTrue("IllegalArgumentException",true);
         }
     }
 }
