@@ -1,3 +1,25 @@
+/* === This file is part of MorphoQuizz - <http://github.com/loclamor/morphoQuizz/> ===
+*
+* Copyright 2013, Rémi Benoit <r3m1.benoit@gmail.com>
+* Copyright 2013, Loic Favier <favier.loic.31@gmail.com>
+* Copyright 2013, Guillaume Jandin <guillaume.jandin1@gmail.com>
+* Copyright 2013, Akram Mohammed Rhafrane <20contact12@gmail.com>
+* Copyright 2013, Franck Arrecot <franck.arrecot@gmail.com>
+*
+* MorphoQuizz is free software: you can redistribute it and/or modify
+* it under the terms of the GNU General Public License as published by
+* the Free Software Foundation, either version 3 of the License, or
+* (at your option) any later version.
+*
+* MorphoQuizz is distributed in the hope that it will be useful,
+* but WITHOUT ANY WARRANTY; without even the implied warranty of
+* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+* GNU General Public License for more details.
+*
+* You should have received a copy of the GNU General Public License
+* along with MorphoQuizz . If not, see <http://www.gnu.org/licenses/>.
+*/
+
 package dcll.grp3.morphoQuizz;
 
 import java.io.File;
