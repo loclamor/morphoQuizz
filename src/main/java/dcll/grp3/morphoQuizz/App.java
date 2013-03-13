@@ -19,29 +19,26 @@ public class App {
      *            stocker les entrées
      */
     public static void main(final String[] args) {
+        if(args.length != 3){
+            throw new IllegalArgumentException("Usage : app (-xj/-jx) [xmlInput] [jsonOutput]");
+        }
+        
+        File inputFile = new File(args[1]);
+        File outputFile = new File(args[2]);
+
         try {
-            File xml = new File("data/quiz-moodle-exemple.xml");
-            File json = new File("test.json");
-            File newXml = new File("test.xml");
+            if(args[0].equals("-xj")){
+                QuizzConverter.xmlQuizzToJson(inputFile, outputFile);
+            }else{
+                if(args[0].equals("-jx")){
+                    QuizzConverter.jsonQuizzToXML(inputFile, outputFile);
+                }else{
+                    throw new IllegalArgumentException("Usage : app (-xj/-jx) [xmlInput] [jsonOutput]");
+                }
+            }
+            
+            System.out.println("Quizz convertit dans : " + outputFile.getAbsolutePath());
 
-            QuizzConverter.xmlQuizzToJson(xml, json);
-            QuizzConverter.jsonQuizzToXML(json, newXml);
-
-            DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
-            dbf.setNamespaceAware(true);
-            dbf.setCoalescing(true);
-            dbf.setIgnoringElementContentWhitespace(true);
-            dbf.setIgnoringComments(true);
-            DocumentBuilder db = dbf.newDocumentBuilder();
-
-            Document doc1 = db.parse(xml);
-            doc1.normalizeDocument();
-
-            Document doc2 = db.parse(newXml);
-            doc2.normalizeDocument();
-
-            // Assert.assertTrue(doc1.isEqualNode(doc2));
-            System.out.println(doc1.isEqualNode(doc2));
         } catch (Exception e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
