@@ -24,24 +24,32 @@ import de.odysseus.staxon.json.JsonXMLInputFactory;
 import de.odysseus.staxon.json.JsonXMLOutputFactory;
 import de.odysseus.staxon.xml.util.PrettyXMLEventWriter;
 
+/**
+ * Classe de conversion de Quizz de Xml en Json et inversement.
+ *
+ * @author LeGaliZ_mE
+ *
+ */
 @SuppressWarnings("restriction")
 public class QuizzConverter {
 
-    /**.
-     * Lit le fichier de quizz XML xmlInput, ecrit le test convertit en JSON
+    /**
+     * . Lit le fichier de quizz XML xmlInput, ecrit le test convertit en JSON
      * dans le fichier jsonOutput
      *
      * @param xmlInput
      *            Ficher de Quizz XML
      * @param jsonOutput
      *            Fichier de sortie JSON
-     * @throws IOException exception entrée/sortie
-     * @throws FactoryConfigurationError Erreur de configurations
-     * @throws XMLStreamException exception de flux XML
+     * @throws IOException
+     *             exception entrée/sortie
+     * @throws FactoryConfigurationError
+     *             Erreur de configurations
+     * @throws XMLStreamException
+     *             exception de flux XML
      */
     public static void xmlQuizzToJson(final File xmlInput, final File jsonOutput)
-            throws IOException, XMLStreamException,
-            javax.xml.stream.FactoryConfigurationError {
+            throws IOException, XMLStreamException, FactoryConfigurationError {
 
         InputStream is = new FileInputStream(xmlInput);
         OutputStream os = new FileOutputStream(jsonOutput);
@@ -86,17 +94,20 @@ public class QuizzConverter {
         }
     }
 
-    /**.
-     * Lit le fichier de quizz json jsonInput, ecrit le test convertit en XML
-     * dans le fichier xmlOutput
-     *.
+    /**
+     * . Lit le fichier de quizz json jsonInput, ecrit le test convertit en XML
+     * dans le fichier xmlOutput .
+     *
      * @param jsonInput
      *            Ficher de Quizz Json
      * @param xmlOutput
      *            Fichier de sortie XML
-     * @throws IOException exception entrée/sortie
-     * @throws FactoryConfigurationError Erreur de configurations
-     * @throws XMLStreamException exception de flux XML
+     * @throws IOException
+     *             exception entrée/sortie
+     * @throws FactoryConfigurationError
+     *             Erreur de configurations
+     * @throws XMLStreamException
+     *             exception de flux XML
      */
     public static void jsonQuizzToXML(final File jsonInput, final File xmlOutput)
             throws IOException, XMLStreamException, FactoryConfigurationError {

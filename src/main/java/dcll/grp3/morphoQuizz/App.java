@@ -2,42 +2,40 @@ package dcll.grp3.morphoQuizz;
 
 import java.io.File;
 
-import javax.xml.parsers.DocumentBuilder;
-import javax.xml.parsers.DocumentBuilderFactory;
-
-import org.w3c.dom.Document;
-
-/**.
- * Classe principale de l'application
+/**
+ *  Classe principale de l'application.
  *
  */
 public class App {
     /**
-     * . Methode main
+     * Methode main.
      *
      * @param args
      *            stocker les entrées
      */
     public static void main(final String[] args) {
-        if(args.length != 3){
-            throw new IllegalArgumentException("Usage : app (-xj/-jx) [xmlInput] [jsonOutput]");
+        if (args.length != 3) {
+            throw new IllegalArgumentException(
+                    "Usage : app (-xj/-jx) [xmlInput] [jsonOutput]");
         }
-        
+
         File inputFile = new File(args[1]);
         File outputFile = new File(args[2]);
 
         try {
-            if(args[0].equals("-xj")){
+            if (args[0].equals("-xj")) {
                 QuizzConverter.xmlQuizzToJson(inputFile, outputFile);
-            }else{
-                if(args[0].equals("-jx")){
+            } else {
+                if (args[0].equals("-jx")) {
                     QuizzConverter.jsonQuizzToXML(inputFile, outputFile);
-                }else{
-                    throw new IllegalArgumentException("Usage : app (-xj/-jx) [xmlInput] [jsonOutput]");
+                } else {
+                    throw new IllegalArgumentException(
+                            "Usage : app (-xj/-jx) [xmlInput] [jsonOutput]");
                 }
             }
-            
-            System.out.println("Quizz convertit dans : " + outputFile.getAbsolutePath());
+
+            System.out.println("Quizz convertit dans : "
+                    + outputFile.getAbsolutePath());
 
         } catch (Exception e) {
             // TODO Auto-generated catch block
